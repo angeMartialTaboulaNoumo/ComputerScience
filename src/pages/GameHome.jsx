@@ -92,8 +92,8 @@ const GameHome = () => {
             <Navbar />
             <ChatWidget />
             {!quizStarted ? (
-                <div className="hero-section">
-                    <div className="hero-content">
+                <div className="game-hero-section">
+                    <div className="game-hero-content">
                         <div className="hero-text-column">
                             <h1 className="hero-title">Mesure ton impact numérique</h1>
                             <p className="hero-subtitle">
