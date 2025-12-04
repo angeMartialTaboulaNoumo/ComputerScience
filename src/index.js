@@ -7,19 +7,23 @@ import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import './assets/styles/index.css'
+import Accueil from './pages/Accueil';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
       <Routes>
+        <Route path="/" element={<Accueil />} />
         <Route path='/gamehome' element={<GameHome />}/>
+        <Route path='/nird' element={<Nird />}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/signup' element={<Signup />}/>
-        <Route path='nird' element={<Nird />}/>
         <Route path='*' element={<NotFound />}/>
       </Routes>
     </Router>
   </React.StrictMode>
 );
+
+
 
