@@ -1,19 +1,19 @@
 .game-home-container {
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
   background-color: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* Hero Section */
-.hero-section {
-  min-height: 100vh;
+.game-hero-section {
+  min-height: calc(100vh - 64px);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
 }
 
-.hero-content {
+.game-hero-content {
   max-width: 1200px;
   width: 100%;
   display: grid;
@@ -23,7 +23,7 @@
 }
 
 .hero-text-column {
-  max-width: 500px;
+  max-width: 900px;
 }
 
 .hero-title {
@@ -147,7 +147,7 @@
 
 /* Quiz Section */
 .quiz-section {
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
   max-width: 800px;
   margin: 0 auto;
   padding: 3rem 2rem;
