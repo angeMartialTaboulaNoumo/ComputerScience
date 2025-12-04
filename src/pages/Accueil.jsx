@@ -1,6 +1,8 @@
 //import React, { useState, useEffect } from 'react';
 //import '../assets/styles/styleAccueil.css';
 import React, { useState, useEffect } from 'react';
+import Navbar from '../components/Navbar';
+import ChatWidget from '../components/ChatWidget';
 import '../assets/styles/styleAccueil.css';
 
 const AccueilPage = () => {
@@ -68,62 +70,9 @@ const AccueilPage = () => {
   return (
     <div className="accueil-page">
       {/* Navbar */}
-      <nav className="navbar">
-        <div className="navbar-container">
-          <div className="navbar-brand">
-            <div className="logo">
-              <span className="logo-icon">🌿</span>
-              <span className="logo-text">Transition Verte</span>
-            </div>
-          </div>
-          
-          <div className="navbar-menu">
-            <button 
-              className={`nav-link ${activeNav === 'accueil' ? 'active' : ''}`}
-              onClick={() => setActiveNav('accueil')}
-            >
-              🏠 Accueil
-            </button>
-            <button 
-              className={`nav-link ${activeNav === 'classement' ? 'active' : ''}`}
-              onClick={() => setActiveNav('classement')}
-            >
-              🏆 Classement
-            </button>
-            <button 
-              className={`nav-link ${activeNav === 'alternatives' ? 'active' : ''}`}
-              onClick={() => setActiveNav('alternatives')}
-            >
-              🔄 Alternatives
-            </button>
-            <button 
-              className={`nav-link ${activeNav === 'jeux' ? 'active' : ''}`}
-              onClick={() => setActiveNav('jeux')}
-            >
-              🎮 Jeux éducatifs
-            </button>
-            <button 
-              className={`nav-link ${activeNav === 'ressources' ? 'active' : ''}`}
-              onClick={() => setActiveNav('ressources')}
-            >
-              📚 Ressources
-            </button>
-          </div>
-          
-          <div className="navbar-user">
-            <div className="user-score-display">
-              <span className="score-label">Votre score:</span>
-              <span 
-                className="score-value" 
-                style={{ color: getScoreColor(userScore) }}
-              >
-                {userScore}
-              </span>
-            </div>
-            <div className="user-avatar">👤</div>
-          </div>
-        </div>
-      </nav>
+
+      <Navbar />
+      <ChatWidget />
 
       {/* Section d'accueil avec image et message */}
       <section className="hero-section">
