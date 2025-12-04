@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Nird from './pages/Nird';
 import GameHome from './pages/GameHome';
 import NotFound from './pages/NotFound';
 
@@ -10,6 +11,7 @@ root.render(
     <Router>
       <Routes>
         <Route path='/gamehome' element={<GameHome />}/>
+        <Route path='nird' element={<Nird />}/>
         <Route path='*' element={<NotFound />}/>
       </Routes>
     </Router>
