@@ -4,7 +4,9 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import ChatWidget from '../components/ChatWidget';
 import '../assets/styles/styleAccueil.css';
-
+import Button from '../components/Button';
+import Footer from '../components/Footer';
+import { FaChartArea, FaTree, FaUsers, FaChartLine, FaBolt, FaTrophy, FaCompressArrowsAlt} from 'react-icons/fa';
 const AccueilPage = () => {
   const [userScore, setUserScore] = useState(45);
   const [userName] = useState('Tech-Responsable');
@@ -16,21 +18,14 @@ const AccueilPage = () => {
     { id: 1, name: "Écolo-Tech", score: 12, avatar: "🌱", progress: 8, level: "Expert Vert" },
     { id: 2, name: "Vert-Numérique", score: 18, avatar: "🌍", progress: 12, level: "Expert Vert" },
     { id: 3, name: "Libre-Connecté", score: 22, avatar: "🕊️", progress: 5, level: "Avancé" },
-    { id: 4, name: "Tech-Responsable", score: 28, avatar: "💚", progress: 15, level: "Avancé" },
-    { id: 5, name: "Vous", score: 45, avatar: "👤", progress: 10, level: "Intermédiaire" },
-    { id: 6, name: "Débutant-Éthique", score: 58, avatar: "🌿", progress: -3, level: "Débutant" },
-    { id: 7, name: "Transition-En-Cours", score: 67, avatar: "🔄", progress: -8, level: "Débutant" },
-    { id: 8, name: "Consomm-Tech", score: 82, avatar: "📱", progress: -12, level: "Dépendant" },
-    { id: 9, name: "Giga-Dépendant", score: 91, avatar: "🔌", progress: -5, level: "Dépendant" },
-    { id: 10, name: "Cloud-Addict", score: 96, avatar: "☁️", progress: -15, level: "Très Dépendant" }
   ];
 
   // Statistiques d'impact
   const impactStats = [
-    { icon: "🌳", value: "1,234", label: "Arbres plantés par la communauté" },
-    { icon: "⚡", value: "45,678", label: "kWh d'énergie économisée" },
-    { icon: "📉", value: "89%", label: "de réduction des données collectées" },
-    { icon: "👥", value: "5,432", label: "Membres actifs dans la transition" }
+    { icon: <FaTree style={{color: '#27ae60', fontSize: '1.1em'}} />, value: "1,234", label: "Arbres plantés par la communauté" },
+    { icon: <FaBolt style={{color: '#27ae60', fontSize: '1.1em'}} />, value: "45,678", label: "kWh d'énergie économisée" },
+    { icon: <FaChartLine style={{color: '#27ae60', fontSize: '1.1em'}} />, value: "89%", label: "de réduction des données collectées" },
+    { icon: <FaUsers style={{color: '#27ae60', fontSize: '1.1em'}} />, value: "5,432", label: "Membres actifs dans la transition" }
   ];
 
   // Alternatives populaires
@@ -75,15 +70,15 @@ const AccueilPage = () => {
       <ChatWidget />
 
       {/* Section d'accueil avec image et message */}
-      <section className="hero-section">
+      <section className="accueil-hero-section">
         <div className="hero-background">
           <div className="hero-overlay"></div>
           <div className="hero-content">
             <div className="hero-text">
               <h1 className="hero-title">
-                <span className="hero-icon">🌍</span>
-                Libérez-vous des Big Tech
-                <span className="hero-icon">🌱</span>
+                {/* <span className="hero-icon">🌍</span> */}
+                Libérez-vous des <br /> Big Tech
+                {/* <span className="hero-icon">🌱</span> */}
               </h1>
               <h2 className="hero-subtitle">
                 Rejoignez le mouvement pour une transition numérique éthique et écologique
@@ -95,23 +90,19 @@ const AccueilPage = () => {
               </p>
               
               <div className="hero-actions">
-                <button className="btn-primary">
-                  📝 Évaluer ma dépendance
-                </button>
-                <button className="btn-secondary">
-                  🔍 Découvrir les alternatives
-                </button>
+                <Button text={"Évaluer ma dépendance"} icon={null} variantType={"variant-2"}/>
+                <Button text={"Découvrir les alternatives"} icon={null} variantType={"variant-3"}/>
               </div>
             </div>
             
             <div className="hero-image-container">
               <div className="hero-image-placeholder">
                 <div className="image-content">
-                  <div className="earth-icon">🌍</div>
+                  {/* <div className="earth-icon">🌍</div>
                   <div className="digital-tree">🌳</div>
                   <div className="data-lock">🔒</div>
                   <div className="leaf-network">🍃</div>
-                  <div className="cloud-alt">☁️</div>
+                  <div className="cloud-alt">☁️</div> */}
                 </div>
                 <div className="image-caption">
                   Illustration: Transition vers un numérique plus vert et éthique
@@ -125,7 +116,7 @@ const AccueilPage = () => {
       {/* Statistiques d'impact */}
       <section className="stats-section">
         <div className="section-header">
-          <h2>📊 Impact collectif de notre communauté</h2>
+          <h2><FaChartArea style={{color: '#2ecc71', fontSize: '1.5em'}}/> Impact collectif de notre communauté</h2>
           <p>Chaque petit geste compte dans la transition vers un numérique plus responsable</p>
         </div>
         
@@ -143,7 +134,7 @@ const AccueilPage = () => {
       {/* Section Classement */}
       <section className="ranking-section">
         <div className="section-header">
-          <h2>🏆 Classement de la communauté</h2>
+          <h2><FaTrophy style={{color: '#f1c40f', fontSize: '1.5em'}}/> Classement de la communauté</h2>
           <p>Comparez votre score avec les autres membres et progressez vers un numérique plus vert</p>
         </div>
         
@@ -273,61 +264,14 @@ const AccueilPage = () => {
           <h2>Prêt à réduire votre dépendance aux Big Tech?</h2>
           <p>Commencez votre transition numérique verte dès aujourd'hui</p>
           <div className="cta-actions">
-            <button className="btn-cta-primary">
-              🚀 Commencer l'évaluation
-            </button>
-            <button className="btn-cta-secondary">
-              📚 Voir le guide complet
-            </button>
+            <Button text={"🚀 Commencer l'évaluation"} variantType={"variant-2"}/>
+            <Button text={"📚  Voir le guide complet"} variantType={"variant-3"}/>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="page-footer">
-        <div className="footer-content">
-          <div className="footer-brand">
-            <div className="logo">
-              <span className="logo-icon">🌿</span>
-              <span className="logo-text">Transition Verte</span>
-            </div>
-            <p className="footer-tagline">
-              Vers un numérique éthique, écologique et indépendant
-            </p>
-          </div>
-          
-          <div className="footer-links">
-            <div className="footer-column">
-              <h4>Navigation</h4>
-              <a href="#">Accueil</a>
-              <a href="#">Classement</a>
-              <a href="#">Alternatives</a>
-              <a href="#">Jeux éducatifs</a>
-            </div>
-            
-            <div className="footer-column">
-              <h4>Ressources</h4>
-              <a href="#">Guides pratiques</a>
-              <a href="#">Études de cas</a>
-              <a href="#">Outils d'évaluation</a>
-              <a href="#">Blog</a>
-            </div>
-            
-            <div className="footer-column">
-              <h4>Communauté</h4>
-              <a href="#">Forum</a>
-              <a href="#">Événements</a>
-              <a href="#">Témoignages</a>
-              <a href="#">Devenir ambassadeur</a>
-            </div>
-          </div>
-        </div>
-        
-        <div className="footer-bottom">
-          <p>© 2024 Transition Verte. Tous droits réservés.</p>
-          <p>🌍 Ensemble pour un numérique plus responsable</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
