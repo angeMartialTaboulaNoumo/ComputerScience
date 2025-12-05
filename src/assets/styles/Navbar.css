@@ -1,41 +1,38 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* BARRE DU HAUT (toujours visible) */
 .navbar {
   position: fixed;
   left: 0px;
   top: 0;
   z-index: 10;
   width: 100%;
-  background-color: #1a1a2e;        /* bleu nuit */
+  background-color: white; 
   color: #fff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Contenu interne */
-.navbar-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;   /* logo à gauche, bloc à droite */
-  padding: 0 1.2rem;
-  height: 64px;
+  justify-content: center;
+  min-height: 100px;
+  min-height: 100px;
 }
 
-/* LOGO À GAUCHE */
+.navbar-inner {
+  min-height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  padding: 0 1.2rem;
+}
+
 .navbar-logo {
   font-size: 1.4rem;
   font-weight: 800;
-  color: #f1c40f;                 /* jaune Astérix */
+  color: var(--primary-color); 
   letter-spacing: 1px;
   cursor: pointer;
 }
 
-/* LIENS DESKTOP À DROITE */
 .navbar-links-desktop {
   display: none;                  /* mobile : caché */
   list-style: none;
@@ -45,26 +42,32 @@
 }
 
 .navbar-links-desktop li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   text-decoration: none;
-  color: #ecf0f1;
+  color: #b2b2b2;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.1rem;
   position: relative;
+  text-transform: capitalize;
   transition: color 0.3s ease;
 }
 
-.navbar-links-desktop li a:hover {
+/* .navbar-links-desktop li a:hover {
   color: #ffffff;
-}
+} */
 
 .navbar-links-desktop li a::after {
   content: '';
   display: block;
   width: 0;
-  height: 2px;
-  background: #f1c40f;
+  height: 4px;
+  background: var(--primary-color);
   transition: width 0.3s;
-  margin-top: 4px;
+  position: absolute;
+  bottom: -8px;
+  border-radius: 10px;
 }
 
 .navbar-links-desktop li a:hover::after {
@@ -89,9 +92,14 @@
 .navbar-toggle .bar {
   width: 24px;
   height: 2px;
-  background-color: #ffffff;
+  background-color: var(--primary-color, #27ae60);
   border-radius: 2px;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.2s ease;
+}
+
+/* when the menu is visible (is-open) make bars white */
+.navbar-toggle.is-open .bar {
+  background-color: #ffffff;
 }
 
 .navbar-toggle.is-open .bar:nth-child(1) {
@@ -108,18 +116,18 @@
 .navbar-fullscreen {
   position: fixed;
   inset: 0;
-  background-color: #1a1a2e;
-  color: #fff;
+  background-color: var(--primary-color);
   z-index: 9999;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 2rem 1rem; /* espace interne pour petits écrans */
 }
 
 /* Ligne du haut à l’intérieur de l’overlay */
 .navbar-full-top {
   width: 100%;
-  max-width: 420px;
+  max-width: 100%;
   padding: 0 1.2rem;
   height: 64px;
   display: flex;
@@ -127,42 +135,52 @@
   justify-content: space-between;
 }
 
-/* LISTE DES LIENS DANS L’OVERLAY */
+/* LISTE DES LIENS : layout en deux colonnes (icône fixe + texte) */
 .navbar-links {
   list-style: none;
   margin: 2.4rem 0 1.4rem;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  align-items: center;
+  display: grid;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
 }
 
+/* chaque lien devient une grille : icône fixe + zone texte alignée */
 .navbar-links li a {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
   text-decoration: none;
   color: #ecf0f1;
   font-weight: 600;
   font-size: 1.05rem;
-  position: relative;
-  transition: color 0.3s ease;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  transition: background 0.18s ease, color 0.18s ease;
+  justify-items: start; /* texte aligné à gauche */
 }
 
-.navbar-links li a:hover {
-  color: #ffffff;
-}
-
-.navbar-links li a::after {
-  content: '';
+/* icône : taille fixe et centrée dans sa cellule */
+.navbar-links li a svg,
+.navbar-links li a .react-icon {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 56px;
   display: block;
-  width: 0;
-  height: 2px;
-  background: #f1c40f;
-  transition: width 0.3s;
-  margin-top: 4px;
+  margin: 0 auto;
+  color: inherit;
 }
 
-.navbar-links li a:hover::after {
-  width: 100%;
+/* hover/active pour meilleure lisibilité */
+.navbar-links li a:hover,
+.navbar-links li a.active {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
 }
 
 /* AVATAR EN BAS DE L’OVERLAY */
@@ -200,7 +218,7 @@
 }
 
 /* DESKTOP : afficher liens à droite, cacher hamburger */
-@media (min-width: 768px) {
+@media (min-width: 850px) {
   .navbar-inner {
     height: 80px;
     padding: 0 2rem;
@@ -217,4 +235,11 @@
   .navbar-links-desktop {
     display: flex;          /* liens horizontaux à droite */
   }
+}
+
+.navbar-links-desktop li a.active {
+  color: var(--primary-color);
+}
+.navbar-links-desktop li a.active::after {
+  width: 100%;
 }

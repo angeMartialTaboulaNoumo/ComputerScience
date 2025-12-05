@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 import Navbar from '../components/Navbar';
 import ChatWidget from '../components/ChatWidget';
 import '../assets/styles/GameHome.css';
+import Button from '../components/Button';
+import Footer from '../components/Footer';
 
 const modulesData = [
     {
@@ -105,9 +107,7 @@ const GameHome = () => {
                                 des enjeux du numérique durable. Simple, instructif et utile.
                             </p>
                             <div className="hero-actions">
-                                <button className="primary-button" onClick={startQuiz}>
-                                    Mesurer mon éco‑score
-                                </button>
+                                <Button icon={null} text={"Mesurer mon éco‑score"} onClick={startQuiz} variantType={"variant-2"}/>
                                 {quizTaken && (
                                     <button className="secondary-button" onClick={resetQuiz}>
                                         Refaire le test
@@ -179,6 +179,7 @@ const GameHome = () => {
                     </div>
                 </div>
             )}
+            <Footer/>
         </div>
     );
 };
