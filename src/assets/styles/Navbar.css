@@ -1,0 +1,220 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* BARRE DU HAUT (toujours visible) */
+.navbar {
+  position: fixed;
+  left: 0px;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background-color: #1a1a2e;        /* bleu nuit */
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Contenu interne */
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   /* logo à gauche, bloc à droite */
+  padding: 0 1.2rem;
+  height: 64px;
+}
+
+/* LOGO À GAUCHE */
+.navbar-logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #f1c40f;                 /* jaune Astérix */
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+/* LIENS DESKTOP À DROITE */
+.navbar-links-desktop {
+  display: none;                  /* mobile : caché */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.8rem;
+}
+
+.navbar-links-desktop li a {
+  text-decoration: none;
+  color: #ecf0f1;
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-links-desktop li a:hover {
+  color: #ffffff;
+}
+
+.navbar-links-desktop li a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #f1c40f;
+  transition: width 0.3s;
+  margin-top: 4px;
+}
+
+.navbar-links-desktop li a:hover::after {
+  width: 100%;
+}
+
+/* HAMBURGER / CROIX (mobile) */
+.navbar-toggle {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 1rem;               /* espace avec logo / liens */
+}
+
+.navbar-toggle .bar {
+  width: 24px;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.navbar-toggle.is-open .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.navbar-toggle.is-open .bar:nth-child(2) {
+  opacity: 0;
+}
+.navbar-toggle.is-open .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* OVERLAY PLEIN ÉCRAN AU-DESSUS DE LA PAGE (menu mobile) */
+.navbar-fullscreen {
+  position: fixed;
+  inset: 0;
+  background-color: #1a1a2e;
+  color: #fff;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Ligne du haut à l’intérieur de l’overlay */
+.navbar-full-top {
+  width: 100%;
+  max-width: 420px;
+  padding: 0 1.2rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LISTE DES LIENS DANS L’OVERLAY */
+.navbar-links {
+  list-style: none;
+  margin: 2.4rem 0 1.4rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  align-items: center;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: #ecf0f1;
+  font-weight: 600;
+  font-size: 1.05rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  color: #ffffff;
+}
+
+.navbar-links li a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #f1c40f;
+  transition: width 0.3s;
+  margin-top: 4px;
+}
+
+.navbar-links li a:hover::after {
+  width: 100%;
+}
+
+/* AVATAR EN BAS DE L’OVERLAY */
+.login-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  padding: 4px;
+  margin-top: 1.2rem;
+  background: conic-gradient(
+    #e74c3c 0% 25%,
+    #f1c40f 25% 50%,
+    #27ae60 50% 75%,
+    #3498db 75% 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-badge:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(241,196,15,0.6);
+}
+
+.login-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #1a1a2e;
+  border: 3px solid #1a1a2e;
+  object-fit: cover;
+}
+
+/* DESKTOP : afficher liens à droite, cacher hamburger */
+@media (min-width: 768px) {
+  .navbar-inner {
+    height: 80px;
+    padding: 0 2rem;
+  }
+
+  .navbar-logo {
+    font-size: 1.8rem;
+  }
+
+  .navbar-toggle {
+    display: none;          /* plus de hamburger */
+  }
+
+  .navbar-links-desktop {
+    display: flex;          /* liens horizontaux à droite */
+  }
+}
