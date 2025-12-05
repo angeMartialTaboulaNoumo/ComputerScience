@@ -89,22 +89,34 @@
   padding: 1rem 1.1rem;
   flex: 1;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
-/* BULLES DE MESSAGES */
+/* BULLES DE MESSAGES GÉNÉRIQUES */
 .chat-message {
-  max-width: 85%;
-  padding: 0.65rem 0.8rem;
+  max-width: 80%;
+  padding: 0.65rem 0.9rem;
   border-radius: 14px;
   font-size: 0.9rem;
   line-height: 1.5;
-  margin-bottom: 0.55rem;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
+/* BOT : à gauche, bleu clair */
 .chat-message-bot {
+  align-self: flex-start;
   background: #e3f2fd;
   color: #0f172a;
-  align-self: flex-start;
+}
+
+/* USER : à droite, orange clair */
+.chat-message-user {
+  align-self: flex-end;
+  background: #ffedd5;
+  color: #1f2933;
 }
 
 /* ZONE DE SAISIE */

@@ -61,7 +61,7 @@ const Navbar = () => {
               <Link to="/nird" className={isActive('/nird') ? 'active' : ''}><FaFlask style={{fontSize: '22px'}}/> NIRD</Link>
             </li>
             <li>
-              <Link to="/credit" className={isActive('/credit') ? 'active' : ''}><FaHandshake style={{fontSize: '24px'}}/> Crédit</Link>
+              <Link to="/creditpage" className={isActive('/creditpage') ? 'active' : ''}><FaHandshake style={{fontSize: '24px'}}/> Crédit</Link>
             </li>
           </ul>
 
@@ -119,7 +119,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/credit" onClick={closeMenu} className={isActive('/credit') ? 'active' : ''}>
+              <Link to="/creditpage" onClick={closeMenu} className={isActive('/creditpage') ? 'active' : ''}>
                 <FaHandshake style={{fontSize: '24px'}}/>
                 Crédit
               </Link>
