@@ -90,8 +90,14 @@ const AccueilPage = () => {
               </p>
               
               <div className="hero-actions">
-                <Button text={"Évaluer ma dépendance"} icon={null} variantType={"variant-2"}/>
-                <Button text={"Découvrir les alternatives"} icon={null} variantType={"variant-3"}/>
+                <Button text={"Évaluer ma dépendance"} icon={null} variantType={"variant-2"} onClick={() => {
+                  /*redirige */
+                  window.location.href = "/gamehome";
+                }} />
+                <Button text={"Découvrir les alternatives"} icon={null} variantType={"variant-3"} onClick={() => {
+                  /*redirige */
+                  window.location.href = "https://nird.forge.apps.education.fr/";
+                }} />
               </div>
             </div>
             
@@ -264,8 +270,12 @@ const AccueilPage = () => {
           <h2>Prêt à réduire votre dépendance aux Big Tech?</h2>
           <p>Commencez votre transition numérique verte dès aujourd'hui</p>
           <div className="cta-actions">
-            <Button text={"🚀 Commencer l'évaluation"} variantType={"variant-2"}/>
-            <Button text={"📚  Voir le guide complet"} variantType={"variant-3"}/>
+            <Button text={"🚀 Commencer l'évaluation"} variantType={"variant-2"} onClick={() => {
+              window.location.href = "/gamehome";
+            }}/>
+            <Button text={"📚  Voir le guide complet"} variantType={"variant-3"} onClick={() => {
+              window.location.href = "https://nird.forge.apps.education.fr/";
+            }}/>
           </div>
         </div>
       </section>

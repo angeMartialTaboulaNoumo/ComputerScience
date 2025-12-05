@@ -3,7 +3,7 @@
   position: fixed;
   left: 0px;
   top: 0;
-  z-index: 10;
+  z-index: 999;
   width: 100%;
   background-color: white; 
   color: #fff;
@@ -45,7 +45,7 @@
   align-items: center;
 }
 
-@media (min-width: 850px) {
+@media (min-width: 1300px) {
   .navbar-inner {
     height: 80px;
     padding: 0 2rem;
@@ -515,7 +515,7 @@ a.signup-link:hover {
    ========================================= */
 @media (max-width: 480px) {
   .navbar {
-    min-height: 80px;
+    min-height: 100px;
   }
   
   .navbar-inner {

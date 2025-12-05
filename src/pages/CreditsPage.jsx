@@ -11,71 +11,72 @@ const CreditsPage = () => {
   const teamMembers = [
     {
       id: 1,
-      name: "TABOULA NOUMO Ange",
-      role: "Lead Développeur Full-Stack",
-      avatar: "TN ",
+      name: "  Ange NOUMO TABOULA",
+      role: "DATA/DEV",
+      avatar: "AT ",
       color: "#00ff55",
       info: {
-        email: "alex.dubois@tech-dev.fr",
-        technologies: "React, Node.js, Python, AWS",
-        location: "Paris, France",
-        github: "alex-dubois-dev",
-        linkedin: "alexandre-dubois"
+        email: "martialtaboula@gmail.com",
+        technologies: "sklearn, Python,TensorFlow,Keras, matpmlotlib, pandas, numpy, Node.js, MongoDB",
+        location: "France",
+        github: "angeMartialTaboulaNoumo",
+        linkedin: "martial-taboula-b69a9b33a"
       }
     },
     {
       id: 2,
-      name: "TCHANME Franck",
-      role: "Designer UX/UI Senior",
-      avatar: "TF",
+      name: "Franck TCHANME",
+      role: "AI engineer",
+      avatar: "FT",
       color: "#00dd44",
       info: {
-        email: "sophie.laurent@design.io",
-        technologies: "Figma, Adobe Suite, React",
-        location: "Lyon, France",
-        portfolio: "sophielaurent.design",
-        linkedin: "sophie-laurent-design"
+        email: "tchanmerayan@gmail.com",
+        technologies: "TensorFlow, PyTorch, OpenCV, NLP, Python, R",
+        location: "France",
+       
+        linkedin: "rayan-franck-tchanme"
       }
     },
     {
       id: 3,
-      name: "Thomas Moreau",
-      role: "Architecte Backend",
-      avatar: "TM",
+      name: "Andy KENMEGNE",
+      role: "Developpeur Java & Mobile/IA integrateur",
+      avatar: "AK",
       color: "#00cc33",
       info: {
-        email: "thomas.moreau@backend.dev",
-        technologies: "Java, Spring, PostgreSQL, Docker",
-        location: "Toulouse, France",
-        github: "tmoreau-backend",
-        linkedin: "thomas-moreau-architect"
+        email: "bryankenmegne6@gmail.com",
+        technologies: "Java, PostgreSQL, Dart, Flutter, Supabase",
+        location: "France",
+        github: "bryankenmegne",
+        linkedin: "bryan-kenmegne-899923340 "
       }
     },
     {
       id: 4,
-      name: "Camille Petit",
-      role: "Product Manager",
-      avatar: "CP",
+      name: "Brel NOSSE",
+      role: "Developpeur Frontend",
+      avatar: "BN",
       color: "#00bb22",
       info: {
-        email: "camille.petit@product.co",
-        technologies: "Agile, Scrum, Jira, Analytics",
-        location: "Bordeaux, France",
-        linkedin: "camille-petit-pm"
+        email: "brelnosse2@gmail.com",
+        technologies: "react, NOde.js,Figma, Mongodb, CSS, HTML",
+        location: "France",
+        github: "brelnosse",
+        linkedin: "brel-nosse-88a3a2377/",
       }
     },
     {
       id: 5,
-      name: "Mehdi El Amrani",
-      role: "DevOps Engineer",
-      avatar: "ME",
+      name: "Ann Dany Enobil",
+      role: "Developpeur Fullstack",
+      avatar: "AE",
       color: "#00aa11",
       info: {
-        email: "mehdi.elamrani@devops.tech",
-        technologies: "Kubernetes, CI/CD, Terraform, Azure",
-        location: "Marseille, France",
-        github: "mehdi-devops",
-        linkedin: "mehdi-el-amrani"
+        email: "anndanyenobilfranklin@gmail.com",
+        technologies: "react, NOde.js,Figma, Mongodb, CSS, HTML",
+        location: "France",
+        github: "AnnFranklin08",
+        
       }
     }
   ];
@@ -140,8 +141,8 @@ const CreditsPage = () => {
 
   return (
     <div className="credits-page">
-      <Navbar/>
       {/* Fond Matrix */}
+      <Navbar />
       <div className="matrix-background">
         <div className="matrix-layer"></div>
         <div className="matrix-layer"></div>
@@ -277,4 +278,4 @@ const CreditsPage = () => {
   );
 };
 
-export default CreditsPage;
+export default CreditsPage;
