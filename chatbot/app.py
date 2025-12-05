@@ -4,6 +4,7 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import load_model
 import pickle
+from flask_cors import CORS
 
 encoder_model = load_model("encoders_decoders/encoder_model.h5")
 decoder_model = load_model("encoders_decoders/decoder_model.h5")
@@ -47,6 +48,7 @@ def generate_response(input_text):
 #appli
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/api/chat', methods=['POST'])
 def chat():
