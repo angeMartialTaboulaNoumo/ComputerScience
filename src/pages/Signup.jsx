@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../assets/styles/Auth.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../supabaseClient.jsx';
+import Navbar from '../components/Navbar.jsx';
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -179,6 +180,8 @@ const Signup = () => {
 
   return (
     <div className="auth-container">
+      <Navbar/>
+
       <div className="auth-box">
         {/* En-tête */}
         <div className="auth-header">

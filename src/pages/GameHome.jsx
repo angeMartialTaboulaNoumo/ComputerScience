@@ -38,6 +38,83 @@ const modulesData = [
                 { text: "Réemployer / mettre à jour", correct: true }
             ]
         }
+    },
+{
+        id: 4,
+        title: "L'Arme du Rédacteur",
+        content: {
+            question: "Le Maire veut rédiger un arrêté sans payer d'abonnement à une multinationale. Il choisit :",
+            answers: [
+                { text: "Microsoft Word (Abonnement)", correct: false },
+                { text: "LibreOffice (Libre & Gratuit)", correct: true }
+            ]
+        }
+    },
+    {
+        id: 5,
+        title: "La Traque Numérique",
+        content: {
+            question: "Pour chercher une recette de potion sans que Google enregistre ses goûts, le druide utilise :",
+            answers: [
+                { text: "Chrome & Google Search", correct: false },
+                { text: "Firefox & Qwant/DuckDuckGo", correct: true }
+            ]
+        }
+    },
+    {
+        id: 6,
+        title: "L'Inclusion pour Tous",
+        content: {
+            question: "Le site du village doit être lisible par Mamie qui voit mal. Que faire ?",
+            answers: [
+                { text: "Mettre du texte gris sur fond gris", correct: false },
+                { text: "Respecter les normes d'accessibilité (RGAA)", correct: true }
+            ]
+        }
+    },
+    {
+        id: 7,
+        title: "Sobriété Énergétique",
+        content: {
+            question: "Pour regarder une vidéo de chatons de manière écolo, on privilégie :",
+            answers: [
+                { text: "La 4G/5G (Gourmand en énergie)", correct: false },
+                { text: "Le Wi-Fi ou le câble Ethernet", correct: true }
+            ]
+        }
+    },
+    {
+        id: 8,
+        title: "Le Code Source",
+        content: {
+            question: "Pourquoi est-il crucial que le logiciel de vote du village soit 'Open Source' ?",
+            answers: [
+                { text: "Pour que tout le monde puisse vérifier qu'il ne triche pas", correct: true },
+                { text: "Parce que c'est moins cher uniquement", correct: false }
+            ]
+        }
+    },
+    {
+        id: 9,
+        title: "La Seconde Vie",
+        content: {
+            question: "L'école a reçu 10 vieilles tablettes un peu lentes. On en fait quoi ?",
+            answers: [
+                { text: "Recyclage direct (Destruction)", correct: false },
+                { text: "Installation d'un OS léger (ex: /e/OS ou Lineage)", correct: true }
+            ]
+        }
+    },
+    {
+        id: 10,
+        title: "Le Format de Fichier",
+        content: {
+            question: "Pour être sûr de pouvoir relire les archives dans 50 ans, on sauvegarde en :",
+            answers: [
+                { text: "Format propriétaire fermé (.docx ancien)", correct: false },
+                { text: "Format ouvert standardisé (.odt, .pdf)", correct: true }
+            ]
+        }
     }
 ];
 

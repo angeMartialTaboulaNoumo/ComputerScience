@@ -11,7 +11,7 @@
 .auth-container {
   width: 100%;
   max-width: 480px;
-  margin: 0 auto;
+  margin: 40px auto;
   padding: 2.5rem;
   background: white;
   border-radius: 16px;
@@ -22,6 +22,7 @@
 .auth-header {
   text-align: center;
   margin-bottom: 2.5rem;
+  color: var(--primary-color);
 }
 
 .auth-title {
@@ -220,7 +221,6 @@
   text-decoration: underline;
   color: #059669;
 }
-
 .auth-divider {
   position: relative;
   margin: 1.5rem 0;
@@ -544,6 +544,7 @@
 
   .auth-title {
     font-size: 1.5rem;
+    color: var(--text-primary)
   }
 
   .password-toggle {

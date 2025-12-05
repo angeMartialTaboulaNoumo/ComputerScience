@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ArrowLeft, Mail, Code, Linkedin, Github, MapPin } from 'lucide-react';
 import '../assets/styles/CreditsPage.css';
 import '../assets/styles/MatrixBackground.css';
+import Navbar from '../components/Navbar';
 
 const CreditsPage = () => {
   const [expandedMember, setExpandedMember] = useState(null);
@@ -139,18 +140,13 @@ const CreditsPage = () => {
 
   return (
     <div className="credits-page">
+      <Navbar/>
       {/* Fond Matrix */}
       <div className="matrix-background">
         <div className="matrix-layer"></div>
         <div className="matrix-layer"></div>
         <div className="matrix-layer"></div>
       </div>
-
-      {/* Bouton retour */}
-      <a href="/" className="back-button">
-        <ArrowLeft size={18} style={{ marginRight: '8px' }} />
-        Retour
-      </a>
 
       <div className="credits-container">
         {/* En-tête */}

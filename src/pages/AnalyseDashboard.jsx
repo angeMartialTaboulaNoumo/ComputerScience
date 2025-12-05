@@ -9,6 +9,7 @@ import {
   AlertTriangle 
 } from 'lucide-react';
 import '../assets/styles/AnalyseDashboard.css';
+import Navbar from '../components/Navbar';
 
 const formatBytes = (bytes, decimals = 2) => {
   if (!+bytes) return '0 Octets';
@@ -33,6 +34,7 @@ const ScoreCard = ({ title, score, grade, icon: Icon, type }) => {
 
   return (
     <div className="card">
+      <Navbar/>
       <div className="card-header">
         <h3 className="card-title">{title}</h3>
         <Icon size={20} color="#9ca3af" />
