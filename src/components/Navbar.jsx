@@ -1,44 +1,76 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../assets/styles/Navbar.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { FaHome, FaGamepad, FaFlask, FaHandshake } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  // ref to focus first link when menu opens
+  const firstLinkRef = useRef(null);
 
   const toggleMenu = () => setIsOpen(prev => !prev);
   const closeMenu = () => setIsOpen(false);
 
+  const isActive = (path) => location.pathname === path;
+
+  // Close menu on route change
+  useEffect(() => {
+    closeMenu();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
+
+  // Close menu when viewport becomes wider than mobile breakpoint
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth > 768 && isOpen) closeMenu();
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [isOpen]);
+
+  // Close on Escape and focus management when opening
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape' && isOpen) closeMenu();
+    };
+    window.addEventListener('keydown', onKey);
+    if (isOpen && firstLinkRef.current) {
+      firstLinkRef.current.focus();
+    }
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isOpen]);
+
   return (
     <>
-      {/* Barre du haut toujours visible */}
       <header className="navbar">
         <div className="navbar-inner">
-          {/* Logo à gauche */}
           <div className="navbar-logo">
-            RebootWorld 🛡️
+            RebootWorld
           </div>
 
-          {/* Liens desktop à droite */}
           <ul className="navbar-links-desktop">
             <li>
-              <Link to="/">Accueil</Link>
+              <Link to="/" className={isActive('/') ? 'active' : ''}><FaHome style={{fontSize: '24px'}}/> Accueil</Link>
             </li>
             <li>
-              <Link to="/gamehome">Jeu</Link>
+              <Link to="/gamehome" className={isActive('/gamehome') ? 'active' : ''}><FaGamepad style={{fontSize: '24px'}}/> Jeu & Apprentissage</Link>
             </li>
             <li>
-              <Link to="/nird">NIRD</Link>
+              <Link to="/nird" className={isActive('/nird') ? 'active' : ''}><FaFlask style={{fontSize: '22px'}}/> NIRD</Link>
             </li>
             <li>
-              <Link to="">Crédit</Link>
+              <Link to="/credit" className={isActive('/credit') ? 'active' : ''}><FaHandshake style={{fontSize: '24px'}}/> Crédit</Link>
             </li>
           </ul>
 
-          {/* Hamburger (mobile) complètement à droite */}
           <button
             className={`navbar-toggle ${isOpen ? 'is-open' : ''}`}
             aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
             aria-expanded={isOpen}
+            aria-controls="navbar-fullscreen"
+            aria-haspopup="true"
             onClick={toggleMenu}
           >
             <span className="bar" />
@@ -48,17 +80,17 @@ const Navbar = () => {
         </div>
       </header>
 
-      {/* Overlay plein écran AU-DESSUS de tout (menu mobile) */}
       {isOpen && (
-        <div className="navbar-fullscreen">
+        <div id="navbar-fullscreen" className="navbar-fullscreen" role="dialog" aria-modal="true">
           <div className="navbar-full-top">
             <div className="navbar-logo">
-              RebootWorld 🛡️
+              RebootWorld
             </div>
             <button
               className="navbar-toggle is-open"
               aria-label="Fermer le menu"
               aria-expanded="true"
+              style={{color: 'white'}}
               onClick={closeMenu}
             >
               <span className="bar" />
@@ -69,22 +101,26 @@ const Navbar = () => {
 
           <ul className="navbar-links">
             <li>
-              <Link to="/" onClick={closeMenu}>
+              <Link ref={firstLinkRef} to="/" onClick={closeMenu} className={isActive('/') ? 'active' : ''}>
+                <FaHome style={{fontSize: '24px'}}/>
                 Accueil
               </Link>
             </li>
             <li>
-              <Link to="/gamehome" onClick={closeMenu}>
-                Jeu
+              <Link to="/gamehome" onClick={closeMenu} className={isActive('/gamehome') ? 'active' : ''}>
+                <FaGamepad style={{fontSize: '24px'}}/>
+                Jeu & Apprentissage
               </Link>
             </li>
             <li>
-              <Link to="/nird" onClick={closeMenu}>
+              <Link to="/nird" onClick={closeMenu} className={isActive('/nird') ? 'active' : ''}>
+                <FaFlask style={{fontSize: '24px'}}/>
                 NIRD
               </Link>
             </li>
             <li>
-              <Link to="" onClick={closeMenu}>
+              <Link to="/credit" onClick={closeMenu} className={isActive('/credit') ? 'active' : ''}>
+                <FaHandshake style={{fontSize: '24px'}}/>
                 Crédit
               </Link>
             </li>

@@ -1,9 +1,3 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 /* BOUTON FLOTTANT EN BAS À DROITE */
 .chat-toggle-btn {
   position: fixed;

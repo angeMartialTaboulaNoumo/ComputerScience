@@ -1,0 +1,32 @@
+.variant {
+    padding: 18px 30px;
+    border: none;
+    border-radius: 16px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.1s ease;
+    outline: none;
+    min-width: 160px;
+}
+.variant-2 {
+    background: linear-gradient(to right, var(--primary-color) 0%, var(--primary-color-dark) 100%);
+    color: white;
+    box-shadow: 0 4px 0 #228B22;
+}
+.variant-2:active {
+    box-shadow: 0 0 0 #228B22;
+}
+.variant-3 {
+    background: white;
+    color: var(--primary-color);
+    box-shadow: 0 4px 0 #228B22;
+}
+.variant-3:active {
+    box-shadow: 0 0 0 #228B22;
+}
+.variant:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+}

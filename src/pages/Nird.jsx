@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import ChatWidget from '../components/ChatWidget';
 import '../assets/styles/Nird.css';
+import Footer from '../components/Footer';
 
 export default function Nirb() {
     const nirdDefinitions = [
@@ -45,32 +46,34 @@ export default function Nirb() {
             <Navbar />
             <ChatWidget />
 
-            <h1 className="nird-title">La Démarche N.I.R.D.</h1>
-            <p className="nird-intro">
-                Face à l'Empire Numérique, le village s'organise autour de 4 piliers.
-                Passez votre souris sur les cartes pour découvrir notre code d'honneur !
-            </p>
+            <section className='nird-container-1'>
+                <h1 className="nird-title">La Démarche N.I.R.D.</h1>
+                <p className="nird-intro">
+                    Face à l'Empire Numérique, le village s'organise autour de 4 piliers.
+                    Passez votre souris sur les cartes pour découvrir notre code d'honneur !
+                </p>
 
-            <div className="cards-grid">
-                {nirdDefinitions.map((item, index) => (
-                    <div key={index} className="flip-card">
-                        <div className="flip-card-inner">
-                            {/* FACE AVANT : La Lettre */}
-                            <div className="flip-card-front" style={{ backgroundColor: item.color }}>
-                                <h1>{item.letter}</h1>
-                                <p>{item.word}</p>
-                            </div>
-                            {/* FACE ARRIÈRE : La Définition */}
-                            <div className="flip-card-back" style={{ borderColor: item.color }}>
-                                <h2>{item.word}</h2>
-                                <p>{item.desc}</p>
+                <div className="cards-grid">
+                    {nirdDefinitions.map((item, index) => (
+                        <div key={index} className="flip-card">
+                            <div className="flip-card-inner">
+                                {/* FACE AVANT : La Lettre */}
+                                <div className="flip-card-front" style={{ backgroundColor: item.color }}>
+                                    <h1>{item.letter}</h1>
+                                    <p>{item.word}</p>
+                                </div>
+                                {/* FACE ARRIÈRE : La Définition */}
+                                <div className="flip-card-back" style={{ borderColor: item.color }}>
+                                    <h2>{item.word}</h2>
+                                    <p>{item.desc}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div>
+            </section>
 
-            <div className="arsenal-section">
+            <section className="arsenal-section">
                 <h2>⚔️ L'Arsenal du Libre</h2>
                 <p>Remplacez les outils de l'Empire par nos solutions forgeronnes.</p>
 
@@ -88,7 +91,7 @@ export default function Nirb() {
                         </div>
                     ))}
                 </div>
-            </div>
+            </section>
 
             <div className="resource-link">
                 <p>Envie d'aller plus loin ?</p>
@@ -96,6 +99,7 @@ export default function Nirb() {
                     Visiter la Forge NIRD ➜
                 </a>
             </div>
+            <Footer/>
         </div>
     );
 }
